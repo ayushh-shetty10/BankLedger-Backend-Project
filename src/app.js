@@ -9,9 +9,15 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+//dummy api to check if server is live or not
+app.get("/",(req,res)=>{
+    res.send("Ledger Server is live and running");
+})
+
 app.use("/api/auth",authRouter);
 app.use("/api/accounts",accountsRouter)
 app.use("/api/transaction",transactionRouter)
+
 
 
 module.exports={app};
